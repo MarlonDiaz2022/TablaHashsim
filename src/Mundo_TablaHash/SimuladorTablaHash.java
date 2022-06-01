@@ -11,9 +11,9 @@
 package Mundo_TablaHash;
 
 import Colecciones_SEED.InformacionDeEntrada;
-import Colecciones_SEED.ListaCD;
-import Colecciones_SEED.TablaHash;
-import colecciones_seed.copy.TablaHash_AB;
+import colecciones_seed.TablaHash;
+import colecciones_seed.ArbolBinarioBusqueda;
+import colecciones_seed.TablaHash_AB;
 
 /**
  * Clase que conecta la capa de presentación del Simulador con las Estructuras de Datos.
@@ -22,24 +22,22 @@ import colecciones_seed.copy.TablaHash_AB;
  */
 public class SimuladorTablaHash {
     
-    private TablaHash_AB miTabla;
+    private TablaHash miTabla;
     
     public SimuladorTablaHash(){
     }
     
     public void crearTabla(){
-        this.miTabla = new TablaHash_AB();        
+        this.miTabla = new TablaHash();
     }
     
     public String impTabla(){
         String cad="";
-        ListaCD v[] = this.miTabla.getInformacionEntrada();
+        ArbolBinarioBusqueda v[] = ((TablaHash_AB) miTabla).getTabla();
         for(int i=0; i<v.length; i++){
-            ListaCD l = v[i];
-            if(l!=null || !l.esVacia()){
-                for(Object obj: l){
-                    cad+= ((InformacionDeEntrada)obj).getClave()+" | "+((InformacionDeEntrada)obj).getObjeto().toString()+",";
-                }
+            ArbolBinarioBusqueda binarioBusqueda = v[i];
+            if(binarioBusqueda!=null || !binarioBusqueda.esVacio()){
+                binarioBusqueda.imprime();
             }
             else
                 cad+="null";
