@@ -11,9 +11,12 @@
 package Mundo_TablaHash;
 
 import Colecciones_SEED.InformacionDeEntrada;
+import colecciones_seed.IteratorLC;
 import colecciones_seed.TablaHash;
 import colecciones_seed.ArbolBinarioBusqueda;
 import colecciones_seed.TablaHash_AB;
+
+import java.util.Iterator;
 
 /**
  * Clase que conecta la capa de presentación del Simulador con las Estructuras de Datos.
@@ -33,11 +36,16 @@ public class SimuladorTablaHash {
     
     public String impTabla(){
         String cad="";
+
         ArbolBinarioBusqueda v[] = ((TablaHash_AB) miTabla).getTabla();
         for(int i=0; i<v.length; i++){
             ArbolBinarioBusqueda binarioBusqueda = v[i];
             if(binarioBusqueda!=null || !binarioBusqueda.esVacio()){
-                binarioBusqueda.imprime();
+                Iterator iterator = binarioBusqueda.inOrden();
+                while (iterator.hasNext()){
+                    InformacionDeEntrada info = (InformacionDeEntrada) iterator.next();
+                    cad+= info.getClave()+" | "+ info.getObjeto().toString()+",";
+                }
             }
             else
                 cad+="null";

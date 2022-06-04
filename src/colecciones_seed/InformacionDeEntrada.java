@@ -55,8 +55,8 @@ public class InformacionDeEntrada  <Clave, T > extends Object{
      * @param clave la clave de la entrada,esta no puede ser vacia.  <br>
      */
     public InformacionDeEntrada( Clave clave ){
-        this.objeto = null;
-        this.clave = clave;
+        this.objeto = null;//1
+        this.clave = clave;//1
     }
     
     /**

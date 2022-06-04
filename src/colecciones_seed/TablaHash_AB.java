@@ -82,14 +82,14 @@ public class TablaHash_AB<Clave, T> extends TablaHash{
     }
 
     public Object getObjeto(Object clave ) {
-        InformacionDeEntrada objeto;
-        if ( clave == null )
+        InformacionDeEntrada objeto;//1
+        if ( clave == null )//1
             throw new IllegalArgumentException("Clave null no permitida" );
         else{
-            int indice =index(clave);
-            ArbolBinarioBusqueda<InformacionDeEntrada<Clave, T>> listaObjeto = this.tabla[ indice ];
-            objeto= new InformacionDeEntrada( clave );
-            boolean i=listaObjeto.esta(objeto);
+            int indice =index(clave);//2+index T(n)
+            ArbolBinarioBusqueda<InformacionDeEntrada<Clave, T>> listaObjeto = this.tabla[ indice ];//2
+            objeto= new InformacionDeEntrada( clave );//1+k
+            boolean i=listaObjeto.esta(objeto);//2+
             if(i==false)
                 return null;
             else{

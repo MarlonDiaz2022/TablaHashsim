@@ -245,7 +245,7 @@ public class ArbolBinario<T>
      * @return Un boolean, true si el dato esta o false en caso contrario.
      */
      public boolean esta(T info){
-        return (esta(this.raiz,info));
+        return (esta(this.raiz,info));//1+2
     }
 
      /**
@@ -257,11 +257,12 @@ public class ArbolBinario<T>
       * @return true si el dato esta o false en caso contrario.
       */
     private boolean esta(NodoBin<T> r, T info){
-        if(r==null)
-            return (false);
-        if(r.getInfo().equals(info))
-            return (true);
-        return(esta(r.getIzq(),info) || esta(r.getDer(),info));
+        if(r==null)//1
+            return (false);//1
+        if(r.getInfo().equals(info))//1
+            return (true);//1
+        return(esta(r.getIzq(),info) || esta(r.getDer(),info));//log(n)
+        // pq la busqueda se reduce a la mitad teoricamente en cada instancia
     }
     
     /**
