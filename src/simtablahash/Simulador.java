@@ -101,7 +101,7 @@ public class Simulador implements Initializable {
             }        
             
             //crear la Tablaaa
-            this.simulador.crearTabla(cap);
+            this.simulador.crearTabla();
             this.pintarTDA();           
             impNota("Se ha creado una Tabla Hash con "+cap+" Slots!",0);  
             

@@ -10,7 +10,7 @@
 
 package Mundo_TablaHash;
 
-import Colecciones_SEED.InformacionDeEntrada;
+import colecciones_seed.InformacionDeEntrada;
 import colecciones_seed.IteratorLC;
 import colecciones_seed.TablaHash;
 import colecciones_seed.ArbolBinarioBusqueda;
@@ -39,6 +39,7 @@ public class SimuladorTablaHash {
 
         ArbolBinarioBusqueda v[] = ((TablaHash_AB) miTabla).getTabla();
         for(int i=0; i<v.length; i++){
+            System.out.println("a");
             ArbolBinarioBusqueda binarioBusqueda = v[i];
             if(binarioBusqueda!=null || !binarioBusqueda.esVacio()){
                 Iterator iterator = binarioBusqueda.inOrden();
